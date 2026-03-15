@@ -292,7 +292,8 @@ readinessProbe:
   failureThreshold: 5
 
 # -- Set up `securityContext` to improve Pod security.
-podSecurityContext: {}
+podSecurityContext:
+  runAsNonRoot: true
 
 # @ignore -- Set up `securityContext` to improve container security.
 securityContext:

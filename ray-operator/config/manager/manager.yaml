@@ -24,6 +24,7 @@ spec:
         runAsNonRoot: true
         seccompProfile:
           type: RuntimeDefault
+      automountServiceAccountToken: true
       serviceAccountName: kuberay-operator
       containers:
       - command:

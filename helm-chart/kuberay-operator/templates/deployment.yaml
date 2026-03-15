@@ -35,6 +35,7 @@ spec:
         {{- toYaml . | nindent 8 }}
     {{- end }}
       serviceAccountName: {{ include "kuberay-operator.serviceAccount.name" . }}
+      automountServiceAccountToken: true
       {{- if or (and (.Values.logging.baseDir) (.Values.logging.fileName)) .Values.configuration.enabled }}
       volumes:
       {{- if and (.Values.logging.baseDir) (.Values.logging.fileName) }}

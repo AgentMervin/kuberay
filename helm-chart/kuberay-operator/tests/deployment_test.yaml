@@ -15,6 +15,15 @@ tests:
           kind: Deployment
           name: kuberay-operator
           namespace: kuberay-system
+      - equal:
+          path: spec.template.spec.automountServiceAccountToken
+          value: true
+
+  - it: Should set runAsNonRoot in pod security context by default
+    asserts:
+      - equal:
+          path: spec.template.spec.securityContext.runAsNonRoot
+          value: true
 
   - it: Should add deployment labels if `labels` is set
     set:
